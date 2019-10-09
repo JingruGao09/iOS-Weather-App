@@ -19,7 +19,8 @@ struct WeatherRequest {
     
     init(countryName:String) {
         print(countryName)
-        let resourceString = "https://api.openweathermap.org/data/2.5/weather?q=\(countryName)&appid=\(API_KEY)" //"https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=30746e13e3d13d28676d3a654d31be02"
+        let resourceString = "https://api.openweathermap.org/data/2.5/weather?q=\(countryName)&appid=\(API_KEY)"
+        //"https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=30746e13e3d13d28676d3a654d31be02" 
              
         guard let resourceURL = URL(string: resourceString) else {
             fatalError()

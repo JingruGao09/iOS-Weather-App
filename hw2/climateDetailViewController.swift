@@ -16,6 +16,7 @@ class climateDetailViewController: UIViewController {
     
     @IBOutlet weak var climateDetailImage: UIImageView!
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     
     @IBOutlet weak var tempMinLabel: UILabel!
@@ -27,38 +28,72 @@ class climateDetailViewController: UIViewController {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
     
+    @IBOutlet weak var climateSignImage: UIImageView!
+    
+    
+    @IBOutlet weak var humidityContextLabel: UILabel!
+    
+    @IBOutlet weak var tminContextLabel: UILabel!
+    
+    @IBOutlet weak var tmaxContextLabel: UILabel!
+    
+    @IBOutlet weak var speedContextLabel: UILabel!
+    @IBOutlet weak var degContextLabel: UILabel!
+    @IBOutlet weak var sunriseContextLabel: UILabel!
+    @IBOutlet weak var sunsetContextLabel: UILabel!
+    
+    
     var cityName: String = ""
     //var climateImage: UIImage = UIImage()
     var climateDetail: UIImage = UIImage()
     var cityTemperature: String = ""
     var climateDescription: String = ""
+    var humidity: String = "Humidity"
     var humidityDescription: String = ""
+    var tempMin: String = "Min Temperature"
     var tempMinDescription: String = ""
+    var tempMax: String = "Max Temperature"
     var tempMaxDescription: String = ""
     var windDescription: String = "Wind"
+    var speed: String = "Speed"
     var speedDescription: String = ""
+    var deg: String = "Degree"
     var degDescription: String = ""
+    var sunrise: String = "Sunrise"
     var sunriseDescription: String = ""
+    var sunset: String = "Sunset"
     var sunsetDescription: String = ""
+    var todayDate: String = ""
+    var climateSign: UIImage = UIImage()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.climateDetailLabel.text = cityName
         self.climateDetailImage.image = climateDetail
         self.temperatureLabel.text = cityTemperature
         self.climateDescriptionLabel.text = climateDescription
-        self.humidityLabel.text = humidityDescription
-        self.tempMinLabel.text = tempMinDescription
-        self.tempMaxLabel.text = tempMaxDescription
+    
+        self.humidityLabel.text = humidity
+        self.humidityContextLabel.text = humidityDescription
+        self.tempMinLabel.text = tempMin
+        self.tminContextLabel.text = tempMinDescription
+        self.tempMaxLabel.text = tempMax
+        self.tmaxContextLabel.text = tempMaxDescription
         self.windLabel.text = windDescription
-        self.speedLabel.text = speedDescription
-        self.degLabel.text = degDescription
-        self.sunriseLabel.text = sunriseDescription
-        self.sunsetLabel.text = sunsetDescription
+        self.speedLabel.text = speed
+        self.speedContextLabel.text = speedDescription
+        self.degLabel.text = deg
+        self.degContextLabel.text = degDescription
+        self.sunriseLabel.text = sunrise
+        self.sunriseContextLabel.text = sunriseDescription
+        self.sunsetLabel.text = sunset
+        self.sunsetContextLabel.text = sunsetDescription
+        self.dateLabel.text = todayDate
+        self.climateSignImage.image = climateSign
+        //self.climateDetailImage.backgroundColor = .black
         //climateImage
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

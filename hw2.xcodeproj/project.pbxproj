@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89244DAD234E74EB005C7EE2 /* 06c4f70ec5931e2342e703e8a3f0a253.png in Resources */ = {isa = PBXBuildFile; fileRef = 89244DAC234E74EB005C7EE2 /* 06c4f70ec5931e2342e703e8a3f0a253.png */; };
 		8950CDB62331BA0800929648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950CDB52331BA0800929648 /* AppDelegate.swift */; };
 		8950CDB82331BA0800929648 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950CDB72331BA0800929648 /* ViewController.swift */; };
 		8950CDBB2331BA0800929648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8950CDB92331BA0800929648 /* Main.storyboard */; };
@@ -21,7 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8950CDB22331BA0800929648 /* hw2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hw2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89244DAC234E74EB005C7EE2 /* 06c4f70ec5931e2342e703e8a3f0a253.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 06c4f70ec5931e2342e703e8a3f0a253.png; path = ../../climatepics/iPadbackground/06c4f70ec5931e2342e703e8a3f0a253.png; sourceTree = "<group>"; };
+		8950CDB22331BA0800929648 /* weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8950CDB52331BA0800929648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8950CDB72331BA0800929648 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8950CDBA2331BA0800929648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		8950CDB32331BA0800929648 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8950CDB22331BA0800929648 /* hw2.app */,
+				8950CDB22331BA0800929648 /* weather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +79,7 @@
 				8950CDBC2331BA0B00929648 /* Assets.xcassets */,
 				8951272B2348FFED00DF1209 /* Weather PNG */,
 				8950CDBE2331BA0B00929648 /* LaunchScreen.storyboard */,
+				89244DAC234E74EB005C7EE2 /* 06c4f70ec5931e2342e703e8a3f0a253.png */,
 				8950CDC12331BA0C00929648 /* Info.plist */,
 			);
 			path = hw2;
@@ -99,7 +102,7 @@
 			);
 			name = hw2;
 			productName = hw2;
-			productReference = 8950CDB22331BA0800929648 /* hw2.app */;
+			productReference = 8950CDB22331BA0800929648 /* weather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -142,6 +145,7 @@
 			files = (
 				8950CDC02331BA0B00929648 /* LaunchScreen.storyboard in Resources */,
 				8950CDBD2331BA0B00929648 /* Assets.xcassets in Resources */,
+				89244DAD234E74EB005C7EE2 /* 06c4f70ec5931e2342e703e8a3f0a253.png in Resources */,
 				8951272C2348FFED00DF1209 /* Weather PNG in Resources */,
 				8950CDBB2331BA0800929648 /* Main.storyboard in Resources */,
 			);
@@ -313,7 +317,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ece5642.hw2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = weather;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -330,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ece5642.hw2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = weather;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

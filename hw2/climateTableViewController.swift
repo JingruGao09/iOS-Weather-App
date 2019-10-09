@@ -115,12 +115,12 @@ class climateTableViewController: UITableViewController {
             print(city.main)
             print(city.description)
         }
-        
+        cell.climateDetailImageView.image = UIImage(named: cellDetailWeatherBackgroundImage[cityClimate.weather.first!.icon]!)
         cell.cityLable?.text = cityClimate.name
         cell.temperatureLabel?.text = calculateKelvinToFahrenheit(kelvin: cityClimate.main.temp) + "º"
         cell.countryLabel?.text = cityClimate.sys.country
         cell.climateImageView?.image = UIImage(named: cityClimate.weather.first!.icon)
-        cell.backgroundColor = cellBackgroundColor[cityClimate.weather.first!.icon]
+        //cell.backgroundColor = cellBackgroundColor[cityClimate.weather.first!.icon]
         return cell
     }
     
@@ -227,6 +227,30 @@ class climateTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    func getTodayDate(sunriseTS: Int, sunsetTS: Int, timeZone: Int) -> [String] {
+        var sunriseDate = NSDate(timeIntervalSince1970: TimeInterval(sunriseTS))
+        var sunsetDate = NSDate(timeIntervalSince1970: TimeInterval(sunsetTS))
+        // 1) Create a DateFormatter() object.
+        let format = DateFormatter()
+        // 2) Set the current timezone to .current, or America/Chicago.
+        format.timeZone = TimeZone(secondsFromGMT: timeZone)
+        // 3) Set the format of the altered date.
+        format.dateFormat = "yyyy-MM-dd' 'HH:mm:ss' 'Z"
+        // 4) Set the current date, altered by timezone.
+        let sunriseString = format.string(from: sunriseDate as Date)
+        var date = sunriseString.components(separatedBy: " ")
+        //print(dateString)
+        let sunsetString = format.string(from: sunsetDate as Date)
+        let sunset = sunsetString.components(separatedBy: " ")
+        date[2] = sunset[1]
+        return date
+    }
+//    func unixTimeStampConverter(timeStamp: String) -> String {
+//        let date = NSDate(timeIntervalSince1970: TimeInterval(timeStamp)!)
+//        print(date.description)
+//        let dateArray = date.description.components(separatedBy: " ")
+//        return dateArray[1]
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -249,19 +273,25 @@ class climateTableViewController: UITableViewController {
         let cityWindDeg = currentCityWeatherObj.wind?.deg
         let citySunrise = currentCityWeatherObj.sys.sunrise
         let citySunset = currentCityWeatherObj.sys.sunset
-
+        let cityTimezone = currentCityWeatherObj.timezone
+        let cityClimateSign: UIImage? = UIImage(named: currentCityWeatherObj.weather.first!.icon)
         destVC.cityName = climateLabelName!
         destVC.climateDetail = climateDetailImagePic!
         destVC.climateDescription = firstLetterUpperCase(toConvert: climateDescriptionName!)
         //destVC.climateDescription = climateDescriptionName!
         destVC.cityTemperature = climateTemperatureName!
-        destVC.humidityDescription = "Humidity: " + String(cityHumidity)
-        destVC.tempMinDescription = "Min Temperature: " + String(cityTempMin) + "º"
-        destVC.tempMaxDescription = "Max Temperature: " + String(cityTempMax) + "º"
-        destVC.speedDescription = "Speed: " + String(format: "%.f", cityWindSpeed!)
-        destVC.degDescription = "Deg: " + String(format: "%.f", cityWindDeg!)
-        destVC.sunriseDescription = "Sunrise: " + String(citySunrise)
-        destVC.sunsetDescription = "Sunset: " + String(citySunset)
+        destVC.humidityDescription = String(cityHumidity) + "%"
+        destVC.tempMinDescription = calculateKelvinToFahrenheit(kelvin: cityTempMin) + "º"
+        destVC.tempMaxDescription = calculateKelvinToFahrenheit(kelvin: cityTempMax) + "º"
+        destVC.speedDescription = String(format: "%.f", cityWindSpeed!) + "km/h"
+        destVC.degDescription = String(format: "%.f", cityWindDeg!) + "º"
+        
+        let timeArray = getTodayDate(sunriseTS: citySunrise, sunsetTS: citySunset, timeZone: cityTimezone)
+        
+        destVC.sunriseDescription = timeArray[1]
+        destVC.sunsetDescription = timeArray[2]
+        destVC.todayDate = timeArray[0]
+        destVC.climateSign = cityClimateSign!
         
     }
     

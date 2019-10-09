@@ -39,7 +39,7 @@ struct cityCoord: Codable {
 struct citySys: Codable {
     var type: Int
     var id: Int
-    var message: Double
+    //var message: Double?
     var country: String
     var sunrise: Int
     var sunset: Int
